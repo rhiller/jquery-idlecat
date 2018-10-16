@@ -131,7 +131,16 @@
 		jqDocument.one("mousemove", function (event) {
 			mouseX = event.pageX;
 			mouseY = event.pageY;
+			// console.log("mouse x: " + mouseX + " y: " + mouseY);
 		});
+		
+		jqDocument.one("touchstart", function (event) {
+            		var touchobj = event.originalEvent.changedTouches[0];
+            		mouseX = parseInt(touchobj.pageX);
+            		mouseY = parseInt(touchobj.pageY);
+            		// console.log("touch x: " + mouseX + " y: " + mouseY);
+        	});
+
 
 		//console.log(mouseX, mouseY);
 		var movement = (mouseX != oldMouseX) || (mouseY != oldMouseY);
